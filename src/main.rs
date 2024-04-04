@@ -4,7 +4,7 @@ use clap::Parser;
 
 #[derive(Parser)]
 #[command(about, version, author)]
-struct LeetArgs {
+struct NintysixArgs {
     /// Source file path
     #[arg(short, long)]
     source: Option<String>,
@@ -15,7 +15,7 @@ struct LeetArgs {
 }
 
 fn main() {
-    let args = LeetArgs::parse();
+    let args = NintysixArgs::parse();
 
     let source = args.source
         .map(|s| Path::new(&s).to_owned());
@@ -37,7 +37,7 @@ fn main() {
         },
         None => {
             if atty::is(atty::Stream::Stdin) {
-                eprintln!("leet -> No input given");
+                eprintln!("nintysix -> No input given");
                 std::process::exit(1);
             }
 
